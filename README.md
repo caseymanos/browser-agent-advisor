@@ -5,7 +5,7 @@ Choose browser agents, computer-use tools and infrastructure with minimal decisi
 ## Install
 
 ```bash
-npx skills add caseymanos/agent-stack-guide --skill browser-agent-advisor
+npx skills add caseymanos/browser-agent-advisor --skill browser-agent-advisor
 ```
 
 Ask your agent:
@@ -30,4 +30,4 @@ Independent community guide; not affiliated with the vendors. Original instructi
 
 Follows [skills.sh guidance](https://skills.sh/docs/faq): GitHub-hosted skills are discovered through skills CLI installations. Directory indexing is separate from GitHub availability.
 
-Previously named `choose-agent-stack`. Install `browser-agent-advisor` and remove the old skill if it is still installed. The repository URL is unchanged.
+The repository and skill are both named `browser-agent-advisor`.
