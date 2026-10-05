@@ -12,7 +12,13 @@ Ask your agent:
 
 > Use browser-agent-advisor to choose a browser automation stack. I need hosted execution, persistent logins, and an API for my product.
 
-Or generate the interactive overview with Python 3:
+Or generate the interactive overview with Python 3. After installing with `npx skills add`, run from the directory you installed in (with `-g`, use `~/.agents/skills/...`):
+
+```bash
+python3 .agents/skills/browser-agent-advisor/scripts/render_overview.py --output-dir ./overview
+```
+
+From a clone of this repository:
 
 ```bash
 python3 skills/browser-agent-advisor/scripts/render_overview.py --output-dir ./overview
