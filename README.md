@@ -28,7 +28,7 @@ Open `overview/agent-capabilities.html`. Questionnaire and filtering work offlin
 
 ## Evidence boundaries
 
-32 capabilities, 11 surfaces, 352 evidence entries, 58 sources. Baseline checked September 10, 2026; Browserbase/Stagehand September 11; decision analysis September 12. Current recommendations require fresh verification; bundled HTML remains dated. No comparative agent-performance benchmark was run. No accounts, automatic purchases or background network calls are required by the renderer.
+32 capabilities, 13 surfaces, 416 evidence entries, 102 sources. Baseline checked September 10, 2026; Browserbase/Stagehand September 11; decision analysis September 12; refreshed October 5, 2026 (OpenAI dots and Agents API computer use added). Current recommendations require fresh verification; bundled HTML remains dated. No comparative agent-performance benchmark was run. No accounts, automatic purchases or background network calls are required by the renderer.
 
 Independent community guide; not affiliated with the vendors. Original instructions/code are MIT licensed. Linked source materials remain subject to their owners' rights.
 

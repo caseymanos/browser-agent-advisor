@@ -1,11 +1,11 @@
 ---
 name: browser-agent-advisor
-description: Choose a browser or computer-agent product, SDK, or infrastructure stack with the fewest decision-changing questions. Use to compare Browserbase, Browser Use, Kernel, Stagehand, ChatGPT/OpenAI, Muse or Instinct; map dependencies; or generate an offline interactive questionnaire and capability matrix. Does not deploy agents or claim a measured performance winner.
+description: Choose a browser or computer-agent product, SDK, or infrastructure stack with the fewest decision-changing questions. Use to compare Browserbase, Browser Use, Kernel, Stagehand, ChatGPT/OpenAI (including dots and Agents API computer use), Muse or Instinct; map dependencies; or generate an offline interactive questionnaire and capability matrix. Does not deploy agents or claim a measured performance winner.
 ---
 
 # Browser Agent Advisor
 
-Recommend fit for a task and constraints, not a universal winner. Use existing context before asking questions. Treat bundled September 2026 research as historical evidence, not current truth.
+Recommend fit for a task and constraints, not a universal winner. Use existing context before asking questions. Treat bundled September–October 2026 research as historical evidence, not current truth.
 
 ## Ask only what changes the choice
 
@@ -36,6 +36,6 @@ Run with Python 3 (standard library only), resolving the script relative to this
 python3 scripts/render_overview.py --output-dir /absolute/path/to/output
 ```
 
-Use a writable output directory. Generated `agent-capabilities.html` includes the adaptive questionnaire, 32 capabilities across 11 surfaces, sources and constraint handling. Its companion CSV has the same evidence. It works offline; source links require internet.
+Use a writable output directory. Generated `agent-capabilities.html` includes the adaptive questionnaire, 32 capabilities across 13 surfaces, sources and constraint handling. Its companion CSV has the same evidence. It works offline; source links require internet.
 
 The static guide remains dated even after a separate current search. Do not represent it as refreshed unless data and routing were updated together. Keep `assets/decision-guide.html`, `references/capabilities-data.json` and the renderer consistent. Verify changed paths, back/reset, matrix handoff and mobile overflow. Do not publish private task context with a shared guide.

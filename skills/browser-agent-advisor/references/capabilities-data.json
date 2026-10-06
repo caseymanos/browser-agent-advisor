@@ -67,6 +67,18 @@
       "name": "Stagehand v4",
       "surface": "Open-source browser SDK",
       "role": "Local or hosted browser tools for an external harness; v3 agent() removed"
+    },
+    {
+      "id": "openai_dots",
+      "name": "OpenAI dots",
+      "surface": "Persistent personal agent (cloud computer)",
+      "role": "Always-on GPT-6 Astra agent with own cloud browser, optional local computer and chat/voice channels"
+    },
+    {
+      "id": "openai_agents_cu",
+      "name": "OpenAI Agents API computer use",
+      "surface": "Hosted browser tool in Agents API (beta)",
+      "role": "OpenAI-hosted browser in managed Codex harness; app approves origins and brokers sign-in"
     }
   ],
   "capabilities": [
@@ -257,12 +269,13 @@
       "status": "Documented",
       "status_code": "D",
       "claim": "Playwright, CDP, BiDi, screenshots/input",
-      "limitations": "WebMCP also documented",
+      "limitations": "WebMCP list/invoke and custom tools; persistent in-VM Node REPL (Sep 18)",
       "sources": [
         "K1",
-        "K11"
+        "K11",
+        "K13"
       ],
-      "checked": "2026-09-10",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -307,11 +320,12 @@
       "status": "Documented",
       "status_code": "D",
       "claim": "Baseline anti-detection; optional stealth",
-      "limitations": "No universal bypass guarantee",
+      "limitations": "No universal bypass guarantee. Web Bot Auth is opt-in on Startup/Enterprise after support review",
       "sources": [
-        "K2"
+        "K2",
+        "K17"
       ],
-      "checked": "2026-09-10",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -355,12 +369,13 @@
       "status": "Documented",
       "status_code": "D",
       "claim": "Stealth includes static ISP exit",
-      "limitations": "Custom/regional options plan-gated",
+      "limitations": "Custom/regional options plan-gated; ISP countries and per-host proxy routes added",
       "sources": [
         "K2",
-        "K8"
+        "K8",
+        "K13"
       ],
-      "checked": "2026-09-10",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -372,11 +387,12 @@
       "status": "Documented",
       "status_code": "D",
       "claim": "Managed auth and reusable profiles",
-      "limitations": "Automated reauth when eligible",
+      "limitations": "Reauth status now Auto / Best effort / Needs human",
       "sources": [
-        "K4"
+        "K4",
+        "K13"
       ],
-      "checked": "2026-09-10",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -387,13 +403,13 @@
       "capability": "MFA / password managers",
       "status": "Conditional",
       "status_code": "P",
-      "claim": "Managed user-input login flow",
-      "limitations": "1Password integration indexed; site-dependent MFA",
+      "claim": "Managed login flow; 1Password Agentic Autofill in preview",
+      "limitations": "1Password: private vaults, no passkeys, user approves each request; MFA site-dependent",
       "sources": [
         "K4",
-        "K12"
+        "K15"
       ],
-      "checked": "2026-09-10",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -404,12 +420,13 @@
       "capability": "Credential exposure boundary",
       "status": "Documented",
       "status_code": "D",
-      "claim": "Payment aliases resolved at egress",
-      "limitations": "Raw card number/CVC outside browser",
+      "claim": "Payment aliases at egress; vaulted logins filled by Kernel",
+      "limitations": "Card data and vaulted logins stay outside app and agent; users enter them in a Kernel-hosted form",
       "sources": [
-        "K7"
+        "K7",
+        "K13"
       ],
-      "checked": "2026-09-10",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -420,12 +437,14 @@
       "capability": "Make purchases",
       "status": "Documented",
       "status_code": "D",
-      "claim": "Native Link and Agentcard integration",
-      "limitations": "Requires recognized processor request format",
+      "claim": "Native Link and AgentCard integration; 9 listed processors",
+      "limitations": "Needs a recognized processor request; Square and four newer processors use prepared single-use checkout only",
       "sources": [
-        "K5"
+        "K5",
+        "K14",
+        "K18"
       ],
-      "checked": "2026-09-10",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -600,11 +619,12 @@
       "status": "Documented",
       "status_code": "D",
       "claim": "5 / 10 / 150 browsers by plan",
-      "limitations": "Org limit; pools reserve slots",
+      "limitations": "Org limit; pools reserve slots; limits API now reports used and available",
       "sources": [
-        "K8"
+        "K8",
+        "K13"
       ],
-      "checked": "2026-09-10",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -615,12 +635,13 @@
       "capability": "Cost model",
       "status": "Documented",
       "status_code": "D",
-      "claim": "Plan + active browser compute",
-      "limitations": "Model costs extra; idle compute free",
+      "claim": "Plan + active browser compute; $0.50 accountless MPP session",
+      "limitations": "Model costs extra; idle compute free. MPP pays only through Stripe Link CLI",
       "sources": [
-        "K8"
+        "K8",
+        "K16"
       ],
-      "checked": "2026-09-10",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -632,11 +653,12 @@
       "status": "Conditional",
       "status_code": "P",
       "claim": "SOC2; enterprise HIPAA BAA listed",
-      "limitations": "Assurance claims not audited here",
+      "limitations": "Assurance claims not audited here. Regions are not a data-residency guarantee",
       "sources": [
-        "K8"
+        "K8",
+        "K20"
       ],
-      "checked": "2026-09-10",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -664,13 +686,14 @@
       "capability": "Most recent verified change",
       "status": "Documented",
       "status_code": "D",
-      "claim": "Payments launch Sep 10 UTC / Sep 9 PDT",
-      "limitations": "Newer than visible Sep 4 changelog",
+      "claim": "Oct 2: 1Password Autofill preview; accountless MPP browsers",
+      "limitations": "Sep 18 credential vaults; Sep 25 custom WebMCP tools. Changelog entries carry no year",
       "sources": [
-        "K10",
-        "K11"
+        "K13",
+        "K15",
+        "K16"
       ],
-      "checked": "2026-09-10",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -1185,13 +1208,13 @@
       "capability": "Most recent verified change",
       "status": "Documented",
       "status_code": "D",
-      "claim": "0.13.10 Sep 4; docs commits Sep 9",
-      "limitations": "Commits do not equal released runtime",
+      "claim": "No release since 0.13.10 (Sep 4)",
+      "limitations": "Main has an unreleased Anthropic browser-tool driver and CDP fixes; commits are not releases",
       "sources": [
         "B13",
-        "B14"
+        "B20"
       ],
-      "checked": "2026-09-10",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -1328,13 +1351,13 @@
       "capability": "Model choice",
       "status": "Documented",
       "status_code": "D",
-      "claim": "Multiple V4 model choices / BYOK",
-      "limitations": "Provider/account eligibility varies",
+      "claim": "V4 default GPT-6 Luna (High) since Oct 3; BYOK",
+      "limitations": "Pin model for stable cost; API lists model IDs before docs and availability varies",
       "sources": [
         "B15",
-        "B12"
+        "B18"
       ],
-      "checked": "2026-09-10",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -1428,11 +1451,13 @@
       "status": "Documented",
       "status_code": "D",
       "claim": "1Password passwords and TOTP",
-      "limitations": "Domain allowlist; maximum 10 bindings/run",
+      "limitations": "Domain allowlist (now derivable from 1Password item websites); 20 bindings per V4 run",
       "sources": [
-        "B6"
+        "B6",
+        "B18",
+        "B22"
       ],
-      "checked": "2026-09-10",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -1444,11 +1469,12 @@
       "status": "Conditional",
       "status_code": "P",
       "claim": "Typed aliases keep secrets out of task text",
-      "limitations": "Entered values may remain accessible via page/CDP",
+      "limitations": "Entered values may remain accessible via page/CDP; payment iframes need their host allowlisted",
       "sources": [
-        "B6"
+        "B6",
+        "B19"
       ],
-      "checked": "2026-09-10",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -1460,11 +1486,12 @@
       "status": "Conditional",
       "status_code": "P",
       "claim": "V4 Link/Agentcard wallet fields exist",
-      "limitations": "Actual account connection/checkout not tested",
+      "limitations": "Actual account connection/checkout not tested; wallet API unchanged since Sep 10",
       "sources": [
-        "B5"
+        "B5",
+        "B19"
       ],
-      "checked": "2026-09-10",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -1590,12 +1617,12 @@
       "status": "Documented",
       "status_code": "D",
       "claim": "REST V4, Python/TS SDK, CLI/MCP",
-      "limitations": "Some new fields precede SDK types",
+      "limitations": "Newest fields (extensions, structured output) precede SDK 3.11.3 types",
       "sources": [
         "B5",
-        "B6"
+        "B18"
       ],
-      "checked": "2026-09-10",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -1623,12 +1650,13 @@
       "status": "Documented",
       "status_code": "D",
       "claim": "Ordered events, live preview, recording option",
-      "limitations": "Recording off by default",
+      "limitations": "Recording off by default and never on ZDR; CDP network capture, no HAR export",
       "sources": [
         "B9",
-        "B11"
+        "B19",
+        "B21"
       ],
-      "checked": "2026-09-10",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -1639,12 +1667,13 @@
       "capability": "Scale / concurrency",
       "status": "Documented",
       "status_code": "D",
-      "claim": "10\u20131,000 spend-tier sessions",
-      "limitations": "Separate edge and per-project HTTP limits",
+      "claim": "10\u20131,000 spend-tier sessions; Tier 1 from $100 per docs",
+      "limitations": "Pricing page still says $200 for Tier 1; trust the account limit",
       "sources": [
-        "B11"
+        "B11",
+        "B10"
       ],
-      "checked": "2026-09-10",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -1656,11 +1685,11 @@
       "status": "Documented",
       "status_code": "D",
       "claim": "Tokens + 20%; browser/time and traffic",
-      "limitations": "BYOK still pays orchestration fee",
+      "limitations": "BYOK still pays orchestration fee; signup credit cut to $1 on Oct 2",
       "sources": [
         "B10"
       ],
-      "checked": "2026-09-10",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -1671,13 +1700,15 @@
       "capability": "Isolation / data controls",
       "status": "Conditional",
       "status_code": "P",
-      "claim": "SOC2; custom enterprise ZDR/HIPAA",
-      "limitations": "1Password vault access unavailable on ZDR",
+      "claim": "SOC2; enterprise ZDR/HIPAA; EU (Frankfurt) region",
+      "limitations": "EU residency has documented exceptions; 1Password vaults and extensions unavailable on ZDR",
       "sources": [
         "B10",
-        "B6"
+        "B6",
+        "B16",
+        "B17"
       ],
-      "checked": "2026-09-10",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -1688,13 +1719,14 @@
       "capability": "Availability / gating",
       "status": "Documented",
       "status_code": "D",
-      "claim": "Pay-as-you-go Cloud",
-      "limitations": "Credits, connected wallet and model eligibility vary",
+      "claim": "Pay-as-you-go Cloud in US and EU regions",
+      "limitations": "EU supports fewer features; credits, wallet and model eligibility vary",
       "sources": [
         "B10",
-        "B12"
+        "B12",
+        "B16"
       ],
-      "checked": "2026-09-10",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -1705,12 +1737,15 @@
       "capability": "Most recent verified change",
       "status": "Documented",
       "status_code": "D",
-      "claim": "Sep 9 edge WAF ceilings increased",
-      "limitations": "Project application budgets unchanged",
+      "claim": "Oct 3 default model GPT-6 Luna; Oct 4 Chrome extensions",
+      "limitations": "Sep 16 EU region; Oct 2 signup credit $1; SDK 3.11.3 lacks newest fields",
       "sources": [
-        "B11"
+        "B15",
+        "B17",
+        "B16",
+        "B18"
       ],
-      "checked": "2026-09-10",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -1850,11 +1885,12 @@
       "status": "Documented",
       "status_code": "D",
       "claim": "Available model selector; Astra recommended",
-      "limitations": "Plan and workspace availability vary",
+      "limitations": "GPT-6.1 Sol added Sep 29; GPT-5.5 retires Oct 14; plan availability varies",
       "sources": [
-        "O1"
+        "O1",
+        "O4"
       ],
-      "checked": "2026-09-10",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -2213,12 +2249,12 @@
       "capability": "Most recent verified change",
       "status": "Documented",
       "status_code": "D",
-      "claim": "Sep 9 Codex CLI 0.154.0",
-      "limitations": "Adjacent CLI update, not a CUA purchase launch",
+      "claim": "Sep 29 GPT-6.1 Sol; Codex CLI 0.156\u20130.160",
+      "limitations": "0.158 extends Guardian review to the browser connector; no new CUA limits",
       "sources": [
         "O4"
       ],
-      "checked": "2026-09-10",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -2717,15 +2753,15 @@
       "category": "Evidence",
       "capability_id": "recent",
       "capability": "Most recent verified change",
-      "status": "Documented",
-      "status_code": "D",
-      "claim": "Current docs checked Sep 10",
-      "limitations": "No new Sep 9\u201310 cloud CUA release established",
+      "status": "Not established",
+      "status_code": "U",
+      "claim": "No dated cloud-browser change Sep 10\u2013Oct 5",
+      "limitations": "dots (Sep 29) is a separate always-on product",
       "sources": [
         "O2",
         "O4"
       ],
-      "checked": "2026-09-10",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -2863,12 +2899,14 @@
       "capability": "Model choice",
       "status": "Documented",
       "status_code": "D",
-      "claim": "GPT-6 Astra documented for computer use",
-      "limitations": "Check model-specific availability/pricing",
+      "claim": "GPT-6 Astra and GPT-6.1 Sol documented for computer use",
+      "limitations": "Sol is about 1/5 of Astra API price; benchmark gains are vendor claims",
       "sources": [
-        "O3"
+        "O3",
+        "O7",
+        "O8"
       ],
-      "checked": "2026-09-10",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -3180,11 +3218,12 @@
       "status": "Implementation-dependent inference",
       "status_code": "I",
       "claim": "Model tokens plus runtime/provider cost",
-      "limitations": "No universal cost per successful task",
+      "limitations": "No universal cost per task; hosted Agents API computer use has no tool price",
       "sources": [
-        "O3"
+        "O3",
+        "O8"
       ],
-      "checked": "2026-09-10",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -3227,12 +3266,13 @@
       "capability": "Most recent verified change",
       "status": "Documented",
       "status_code": "D",
-      "claim": "Current Astra integration docs checked Sep 10",
-      "limitations": "Page publication date not established",
+      "claim": "Sep 29 GPT-6.1 Sol; hosted computer use in Agents API",
+      "limitations": "Hosted option is a separate column; this column is the bring-your-runtime tool",
       "sources": [
+        "O7",
         "O3"
       ],
-      "checked": "2026-09-10",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -3673,11 +3713,12 @@
       "status": "Not established",
       "status_code": "U",
       "claim": "Numeric public price not established",
-      "limitations": "Terms allow paid features",
+      "limitations": "Terms allow paid features; CEO reportedly plans not to charge users",
       "sources": [
-        "I2"
+        "I2",
+        "I7"
       ],
-      "checked": "2026-09-10",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -3720,13 +3761,13 @@
       "capability": "Most recent verified change",
       "status": "Reported",
       "status_code": "R",
-      "claim": "Email rollout covered Sep 9",
-      "limitations": "Original X blocked; mirror available",
+      "claim": "Sep 15 funding report; 100K+ users",
+      "limitations": "No product change found after the Sep 8 email rollout",
       "sources": [
-        "I4",
-        "I6"
+        "I7",
+        "I4"
       ],
-      "checked": "2026-09-10",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -3951,12 +3992,12 @@
       "status": "Announced future",
       "status_code": "A",
       "claim": "1Password support coming soon at launch",
-      "limitations": "Existing secure login flow is current",
+      "limitations": "Still coming soon on Sep 30 update; secure login flow is current",
       "sources": [
         "M1",
         "M2"
       ],
-      "checked": "2026-09-10",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -3984,11 +4025,13 @@
       "status": "Documented",
       "status_code": "D",
       "claim": "Link checkout and single-use cards",
-      "limitations": "US consumer payment methods; Shop Pay planned",
+      "limitations": "US payment methods; Shop Pay still coming soon; Amazon blocks Muse (reported)",
       "sources": [
-        "P2"
+        "P2",
+        "M1",
+        "M4"
       ],
-      "checked": "2026-09-10",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -4207,11 +4250,12 @@
       "status": "Vendor claim",
       "status_code": "V",
       "claim": "US rollout: iOS, Android, web",
-      "limitations": "Glasses later; account rollout varies",
+      "limitations": "Glasses later; rollout varies; Amazon blocks Muse shopping (reported)",
       "sources": [
-        "M1"
+        "M1",
+        "M4"
       ],
-      "checked": "2026-09-10",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -4220,14 +4264,15 @@
       "category": "Evidence",
       "capability_id": "recent",
       "capability": "Most recent verified change",
-      "status": "Vendor claim",
-      "status_code": "V",
-      "claim": "Muse launch Sep 8",
-      "limitations": "No distinct Sep 9\u201310 launch verified",
+      "status": "Reported",
+      "status_code": "R",
+      "claim": "Amazon block reported Sep 21; launch post updated Sep 30",
+      "limitations": "Shop Pay, 1Password and Confidential VM unshipped; Shopify/PayPal posts are partner claims",
       "sources": [
+        "M4",
         "M1"
       ],
-      "checked": "2026-09-10",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -4486,15 +4531,15 @@
       "category": "Identity",
       "capability_id": "secrets",
       "capability": "Credential exposure boundary",
-      "status": "Conditional",
-      "status_code": "P",
-      "claim": "Retrieve credentials from an external 1Password vault",
-      "limitations": "Avoids hardcoding; not proof of isolation from browser/code. Functions secrets still roadmap",
+      "status": "Documented",
+      "status_code": "D",
+      "claim": "Functions Secrets GA; external 1Password vault for browsers",
+      "limitations": "Encrypted per project, read via context.secrets; not proof of isolation from browser/code",
       "sources": [
-        "BB5",
-        "BB8"
+        "BB16",
+        "BB5"
       ],
-      "checked": "2026-09-11",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -4755,13 +4800,13 @@
       "capability": "Most recent verified change",
       "status": "Documented",
       "status_code": "D",
-      "claim": "Sep 9 Functions webhooks; code-use engineering update",
-      "limitations": "Checked Sep 11; not a claim that all features launched Sep 9",
+      "claim": "Sep 30 Functions Secrets GA",
+      "limitations": "Sep 9 webhooks; no new browser-infrastructure release found",
       "sources": [
-        "BB14",
-        "BB13"
+        "BB16",
+        "BB14"
       ],
-      "checked": "2026-09-11",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -4789,12 +4834,12 @@
       "status": "Conditional",
       "status_code": "P",
       "claim": "Invoke Functions by API; lifecycle webhooks",
-      "limitations": "External scheduler/event orchestration needed; webhook is a notification",
+      "limitations": "No documented Functions cron as of Oct 5; webhooks cover Functions events only",
       "sources": [
         "BB8",
         "BB14"
       ],
-      "checked": "2026-09-11",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -5002,16 +5047,15 @@
       "category": "Identity",
       "capability_id": "mfa",
       "capability": "MFA / password managers",
-      "status": "Conditional",
-      "status_code": "P",
-      "claim": "Underlying Live View supports human authentication",
-      "limitations": "Browser integration examples do not prove a native Agent password-manager connector",
+      "status": "Documented",
+      "status_code": "D",
+      "claim": "Pause runs for 2FA codes; resume with variables",
+      "limitations": "No native password-manager connector; resume before the session timeout",
       "sources": [
-        "BB1",
-        "BB4",
-        "BB5"
+        "BB15",
+        "BB1"
       ],
-      "checked": "2026-09-11",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -5020,15 +5064,15 @@
       "category": "Identity",
       "capability_id": "secrets",
       "capability": "Credential exposure boundary",
-      "status": "Not established",
-      "status_code": "U",
-      "claim": "Managed-Agent credential isolation not established",
-      "limitations": "Browser 1Password example is not an Agent secret-boundary guarantee",
+      "status": "Conditional",
+      "status_code": "P",
+      "claim": "Resume variables used as placeholders, kept out of transcript",
+      "limitations": "Broader managed-Agent credential isolation not established",
       "sources": [
-        "BB1",
-        "BB5"
+        "BB15",
+        "BB1"
       ],
-      "checked": "2026-09-11",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -5054,15 +5098,15 @@
       "category": "Commerce",
       "capability_id": "approval",
       "capability": "Purchase authorization",
-      "status": "Not established",
-      "status_code": "U",
-      "claim": "Native purchase approval policy not established",
-      "limitations": "Define authorization before delegating purchases",
+      "status": "Conditional",
+      "status_code": "P",
+      "claim": "pauseWhen can stop a run for human approval",
+      "limitations": "Generic pause, not a native purchase policy; session timeout keeps running",
       "sources": [
-        "BB1",
-        "BB6"
+        "BB15",
+        "BB1"
       ],
-      "checked": "2026-09-11",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -5285,12 +5329,14 @@
       "capability": "Most recent verified change",
       "status": "Documented",
       "status_code": "D",
-      "claim": "Managed Agents documented in Sep 11 snapshot",
-      "limitations": "No separate dated Agent launch established in this scan",
+      "claim": "Sep 24 pause and resume runs",
+      "limitations": "Okta XAA (Sep 22) is a blog claim without docs; still outside ZDR/BYOS",
       "sources": [
+        "BB15",
+        "BB17",
         "BB1"
       ],
-      "checked": "2026-09-11",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -5434,12 +5480,13 @@
       "status": "Documented",
       "status_code": "D",
       "claim": "Harness/model choice is external; AI primitives remain",
-      "limitations": "Hosted Model Gateway and server cache require Browserbase",
+      "limitations": "Model Gateway and server cache require Browserbase; docs recommend gpt-5.6-sol",
       "sources": [
+        "BB19",
         "BB11",
         "BB12"
       ],
-      "checked": "2026-09-11",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -5569,12 +5616,12 @@
       "status": "Implementation-dependent inference",
       "status_code": "I",
       "claim": "Write checkout automation with an external payment source",
-      "limitations": "No native Stagehand wallet established",
+      "limitations": "No native wallet; Stripe WebMCP guide fills Checkout via page tools (Chrome 153+)",
       "sources": [
         "BB6",
-        "BB11"
+        "BB20"
       ],
-      "checked": "2026-09-11",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -5820,13 +5867,13 @@
       "capability": "Most recent verified change",
       "status": "Documented",
       "status_code": "D",
-      "claim": "Sep 9 code-use article; v4 harness-agnostic tools",
-      "limitations": "Current migration explicitly removes agent(); not a new autonomous SDK loop",
+      "claim": "No stable release since 4.1.0 (Sep 9); 4.2 alphas",
+      "limitations": "Jev decision model (Sep 21 blog) is not in released code",
       "sources": [
-        "BB13",
-        "BB11"
+        "BB21",
+        "BB18"
       ],
-      "checked": "2026-09-11",
+      "checked": "2026-10-05",
       "testing": "Not hands-on tested"
     },
     {
@@ -5911,6 +5958,1059 @@
       ],
       "checked": "2026-09-11",
       "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_dots:navigate",
+      "product": "openai_dots",
+      "category": "Execution",
+      "capability_id": "navigate",
+      "capability": "Navigate, click, fill forms",
+      "status": "Documented",
+      "status_code": "D",
+      "claim": "Own cloud browser researches and acts on websites",
+      "limitations": "Some sites block cloud browsers; can retry on connected computer",
+      "sources": [
+        "OD1",
+        "OD2"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_dots:control",
+      "product": "openai_dots",
+      "category": "Execution",
+      "capability_id": "control",
+      "capability": "Browser control interface",
+      "status": "Documented",
+      "status_code": "D",
+      "claim": "Managed cloud computer; Take over / Return control",
+      "limitations": "No developer browser-control API (CDP/Playwright) documented",
+      "sources": [
+        "OD2"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_dots:desktop",
+      "product": "openai_dots",
+      "category": "Execution",
+      "capability_id": "desktop",
+      "capability": "Native desktop / phone control",
+      "status": "Documented",
+      "status_code": "D",
+      "claim": "One connected personal computer: local files, code, apps",
+      "limitations": "Must be online with ChatGPT app open; one computer; workspace admin opt-in; no phone control documented",
+      "sources": [
+        "OD1",
+        "OD2",
+        "OD6"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_dots:models",
+      "product": "openai_dots",
+      "category": "Execution",
+      "capability_id": "models",
+      "capability": "Model choice",
+      "status": "Documented",
+      "status_code": "D",
+      "claim": "Powered by GPT-6 Astra",
+      "limitations": "No user model choice documented; Enterprise model controls don't apply",
+      "sources": [
+        "OD1",
+        "OD6"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_dots:stealth",
+      "product": "openai_dots",
+      "category": "Access",
+      "capability_id": "stealth",
+      "capability": "Reduce bot detection",
+      "status": "Not established",
+      "status_code": "U",
+      "claim": "No stealth/anti-bot guarantee documented",
+      "limitations": "Docs say some websites block cloud browsers",
+      "sources": [
+        "OD2"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_dots:captcha",
+      "product": "openai_dots",
+      "category": "Access",
+      "capability_id": "captcha",
+      "capability": "Automatic CAPTCHA handling",
+      "status": "Conditional",
+      "status_code": "P",
+      "claim": "Extra verification may stop work; Take over to finish",
+      "limitations": "No automatic CAPTCHA solving documented",
+      "sources": [
+        "OD1",
+        "OD2"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_dots:hcaptcha",
+      "product": "openai_dots",
+      "category": "Access",
+      "capability_id": "hcaptcha",
+      "capability": "hCaptcha specifically",
+      "status": "Not established",
+      "status_code": "U",
+      "claim": "No hCaptcha-specific handling documented",
+      "limitations": "",
+      "sources": [],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_dots:proxy",
+      "product": "openai_dots",
+      "category": "Access",
+      "capability_id": "proxy",
+      "capability": "Proxies / network identity",
+      "status": "Not established",
+      "status_code": "U",
+      "claim": "No user-selectable proxy/network identity documented",
+      "limitations": "Admins toggle Cloud network access; local VPN doesn't extend to cloud computer",
+      "sources": [
+        "OD6"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_dots:auth",
+      "product": "openai_dots",
+      "category": "Identity",
+      "capability_id": "auth",
+      "capability": "Authenticated sessions",
+      "status": "Documented",
+      "status_code": "D",
+      "claim": "Cloud browser keeps its own signed-in sessions",
+      "limitations": "Not personal browser logins; lasts until sign-out or site expiry",
+      "sources": [
+        "OD2"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_dots:mfa",
+      "product": "openai_dots",
+      "category": "Identity",
+      "capability_id": "mfa",
+      "capability": "MFA / password managers",
+      "status": "Documented",
+      "status_code": "D",
+      "claim": "Private sign-in form takes verification codes; optional saved logins",
+      "limitations": "Reusing a saved login needs confirmation; admins set Use password manager",
+      "sources": [
+        "OD2",
+        "OD6"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_dots:secrets",
+      "product": "openai_dots",
+      "category": "Identity",
+      "capability_id": "secrets",
+      "capability": "Credential exposure boundary",
+      "status": "Documented",
+      "status_code": "D",
+      "claim": "Credentials go to the browser outside the conversation",
+      "limitations": "Saved logins optional; revoking dots doesn't sign out sites or disconnect apps",
+      "sources": [
+        "OD1",
+        "OD2",
+        "OD6"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_dots:pay",
+      "product": "openai_dots",
+      "category": "Commerce",
+      "capability_id": "pay",
+      "capability": "Make purchases",
+      "status": "Not established",
+      "status_code": "U",
+      "claim": "Purchases not documented in dots docs",
+      "limitations": "Shares Work's sign-in flow, but no dots payment/checkout claim found",
+      "sources": [
+        "OD1"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_dots:approval",
+      "product": "openai_dots",
+      "category": "Commerce",
+      "capability_id": "approval",
+      "capability": "Purchase authorization",
+      "status": "Documented",
+      "status_code": "D",
+      "claim": "Auto-review: proceed, ask for approval, or hand off to you",
+      "limitations": "Custom rules optional and fallible; some steps (e.g. password change) are user-only",
+      "sources": [
+        "OD3"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_dots:spend",
+      "product": "openai_dots",
+      "category": "Commerce",
+      "capability_id": "spend",
+      "capability": "Transaction spend constraints",
+      "status": "Not established",
+      "status_code": "U",
+      "claim": "No spend limit or wallet budget documented",
+      "limitations": "",
+      "sources": [],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_dots:refund",
+      "product": "openai_dots",
+      "category": "Commerce",
+      "capability_id": "refund",
+      "capability": "Refund / order reconciliation",
+      "status": "Not established",
+      "status_code": "U",
+      "claim": "No refund/order reconciliation documented",
+      "limitations": "Stopping work doesn't undo completed actions",
+      "sources": [
+        "OD3"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_dots:background",
+      "product": "openai_dots",
+      "category": "Autonomy",
+      "capability_id": "background",
+      "capability": "Work after user leaves",
+      "status": "Documented",
+      "status_code": "D",
+      "claim": "Always-on; keeps working while your devices are off",
+      "limitations": "Local-computer work needs it online with ChatGPT open",
+      "sources": [
+        "OD1",
+        "OD2"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_dots:memory",
+      "product": "openai_dots",
+      "category": "Autonomy",
+      "capability_id": "memory",
+      "capability": "Persistent state / memory",
+      "status": "Documented",
+      "status_code": "D",
+      "claim": "Own saved notes + ChatGPT memory; cloud computer keeps state",
+      "limitations": "Notes aren't a full transcript; disconnecting an app doesn't delete obtained info",
+      "sources": [
+        "OD4",
+        "OD2",
+        "OD6"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_dots:comms",
+      "product": "openai_dots",
+      "category": "Autonomy",
+      "capability_id": "comms",
+      "capability": "Email / calls / messaging",
+      "status": "Documented",
+      "status_code": "D",
+      "claim": "Message or call via ChatGPT, Slack, Teams; plugins like Gmail",
+      "limitations": "Teams invite-only alpha per admin FAQ; texting coming soon; sending needs permission",
+      "sources": [
+        "OD5",
+        "OD6",
+        "OD2"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_dots:files",
+      "product": "openai_dots",
+      "category": "Execution",
+      "capability_id": "files",
+      "capability": "Files and artifacts",
+      "status": "Documented",
+      "status_code": "D",
+      "claim": "Cloud computer has its own files; prepares documents and data",
+      "limitations": "Local files require the connected computer",
+      "sources": [
+        "OD1",
+        "OD2"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_dots:api",
+      "product": "openai_dots",
+      "category": "Developer",
+      "capability_id": "api",
+      "capability": "API / SDK / extensibility",
+      "status": "Not established",
+      "status_code": "U",
+      "claim": "No developer API for dots documented",
+      "limitations": "Reached through ChatGPT, Slack, Teams and voice only",
+      "sources": [
+        "OD1"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_dots:oss",
+      "product": "openai_dots",
+      "category": "Developer",
+      "capability_id": "oss",
+      "capability": "Self-host / open source",
+      "status": "Not established",
+      "status_code": "U",
+      "claim": "No self-hostable or open-source dots stack documented",
+      "limitations": "",
+      "sources": [],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_dots:observe",
+      "product": "openai_dots",
+      "category": "Operations",
+      "capability_id": "observe",
+      "capability": "Traces / live view / audit",
+      "status": "Documented",
+      "status_code": "D",
+      "claim": "Activity view per task; Compliance API logs messages/replies",
+      "limitations": "Admins told to confirm Compliance API coverage before relying on it",
+      "sources": [
+        "OD3",
+        "OD6"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_dots:limits",
+      "product": "openai_dots",
+      "category": "Operations",
+      "capability_id": "limits",
+      "capability": "Scale / concurrency",
+      "status": "Conditional",
+      "status_code": "P",
+      "claim": "Parallel background agents; one connected computer",
+      "limitations": "No published task, concurrency or browser caps",
+      "sources": [
+        "OD1",
+        "OD4"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_dots:pricing",
+      "product": "openai_dots",
+      "category": "Operations",
+      "capability_id": "pricing",
+      "capability": "Cost model",
+      "status": "Conditional",
+      "status_code": "P",
+      "claim": "Plan-included; dot chats don't count toward ChatGPT limits",
+      "limitations": "Work/Codex tasks it starts use those limits; deeper-work allowance, extended first month",
+      "sources": [
+        "OD1",
+        "O5"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_dots:privacy",
+      "product": "openai_dots",
+      "category": "Governance",
+      "capability_id": "privacy",
+      "capability": "Isolation / data controls",
+      "status": "Documented",
+      "status_code": "D",
+      "claim": "ChatGPT data controls apply; no direct training on proactive research",
+      "limitations": "enforce_residency disables local access; cloud retention varies by data category",
+      "sources": [
+        "OD3",
+        "OD6",
+        "OD7"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_dots:available",
+      "product": "openai_dots",
+      "category": "Access",
+      "capability_id": "available",
+      "capability": "Availability / gating",
+      "status": "Conditional",
+      "status_code": "P",
+      "claim": "Gradual rollout: Pro 100/200/500, Business Premium, Enterprise",
+      "limitations": "Pro 18+, not EEA/UK/CH; Enterprise admin-enabled; create on desktop; no mobile web",
+      "sources": [
+        "OD1"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_dots:recent",
+      "product": "openai_dots",
+      "category": "Evidence",
+      "capability_id": "recent",
+      "capability": "Most recent verified change",
+      "status": "Reported",
+      "status_code": "R",
+      "claim": "Launched at DevDay Sep 29, 2026; docs checked Oct 5",
+      "limitations": "Launch date from press; ChatGPT changelog has no dots entry",
+      "sources": [
+        "OD9",
+        "OD1"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_dots:reliability",
+      "product": "openai_dots",
+      "category": "Evidence",
+      "capability_id": "reliability",
+      "capability": "Comparable success evidence",
+      "status": "Not established",
+      "status_code": "U",
+      "claim": "No like-for-like measured comparison",
+      "limitations": "Docs: a completed run doesn't confirm the result was achieved",
+      "sources": [
+        "OD4"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_dots:schedule",
+      "product": "openai_dots",
+      "category": "Autonomy",
+      "capability_id": "schedule",
+      "capability": "Schedules and event triggers",
+      "status": "Documented",
+      "status_code": "D",
+      "claim": "Saved recurring schedules plus supported event triggers",
+      "limitations": "Specify time zone/end date; events depend on connected service",
+      "sources": [
+        "OD4"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_dots:code",
+      "product": "openai_dots",
+      "category": "Execution",
+      "capability_id": "code",
+      "capability": "Execute code / build tools",
+      "status": "Documented",
+      "status_code": "D",
+      "claim": "Runs software in cloud; delegates Codex cloud/local tasks",
+      "limitations": "Cloud coding needs a Codex cloud environment you set up",
+      "sources": [
+        "OD2",
+        "OD4"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_dots:context",
+      "product": "openai_dots",
+      "category": "Identity",
+      "capability_id": "context",
+      "capability": "Screen / audio / location context",
+      "status": "Conditional",
+      "status_code": "P",
+      "claim": "Cloud computer plus connected computer's files and apps",
+      "limitations": "No personal browser tabs/cookies; calls use selected context; no location access documented",
+      "sources": [
+        "OD2",
+        "OD4",
+        "OD6"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_dots:connectors",
+      "product": "openai_dots",
+      "category": "Developer",
+      "capability_id": "connectors",
+      "capability": "Connectors beyond browser UI",
+      "status": "Documented",
+      "status_code": "D",
+      "claim": "Installed ChatGPT plugins, e.g. Gmail, Drive, GitHub",
+      "limitations": "Existing app permissions and admin Plugin controls apply; local skills need connected computer",
+      "sources": [
+        "OD2",
+        "OD6"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_agents_cu:navigate",
+      "product": "openai_agents_cu",
+      "category": "Execution",
+      "capability_id": "navigate",
+      "capability": "Navigate, click, fill forms",
+      "status": "Documented",
+      "status_code": "D",
+      "claim": "Agent navigates and interacts in a hosted browser",
+      "limitations": "App must approve each new website origin, even public sites",
+      "sources": [
+        "OA1"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_agents_cu:control",
+      "product": "openai_agents_cu",
+      "category": "Execution",
+      "capability_id": "control",
+      "capability": "Browser control interface",
+      "status": "Documented",
+      "status_code": "D",
+      "claim": "computer_use tool; openai_hosted env with desktop enabled",
+      "limitations": "No raw CDP/Playwright access documented",
+      "sources": [
+        "OA1"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_agents_cu:desktop",
+      "product": "openai_agents_cu",
+      "category": "Execution",
+      "capability_id": "desktop",
+      "capability": "Native desktop / phone control",
+      "status": "Conditional",
+      "status_code": "P",
+      "claim": "OpenAI-hosted browser only",
+      "limitations": "No local desktop/phone control; docs point to own runtime for that",
+      "sources": [
+        "OA1"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_agents_cu:models",
+      "product": "openai_agents_cu",
+      "category": "Execution",
+      "capability_id": "models",
+      "capability": "Model choice",
+      "status": "Documented",
+      "status_code": "D",
+      "claim": "Docs examples use gpt-6-astra",
+      "limitations": "Supported-model list for computer_use not stated",
+      "sources": [
+        "OA1",
+        "OA3"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_agents_cu:stealth",
+      "product": "openai_agents_cu",
+      "category": "Access",
+      "capability_id": "stealth",
+      "capability": "Reduce bot detection",
+      "status": "Not established",
+      "status_code": "U",
+      "claim": "No stealth/anti-bot feature documented",
+      "limitations": "",
+      "sources": [],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_agents_cu:captcha",
+      "product": "openai_agents_cu",
+      "category": "Access",
+      "capability_id": "captcha",
+      "capability": "Automatic CAPTCHA handling",
+      "status": "Not established",
+      "status_code": "U",
+      "claim": "No CAPTCHA handling documented",
+      "limitations": "No human takeover of hosted browser documented",
+      "sources": [
+        "OA1"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_agents_cu:hcaptcha",
+      "product": "openai_agents_cu",
+      "category": "Access",
+      "capability_id": "hcaptcha",
+      "capability": "hCaptcha specifically",
+      "status": "Not established",
+      "status_code": "U",
+      "claim": "No hCaptcha-specific handling documented",
+      "limitations": "",
+      "sources": [],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_agents_cu:proxy",
+      "product": "openai_agents_cu",
+      "category": "Access",
+      "capability_id": "proxy",
+      "capability": "Proxies / network identity",
+      "status": "Conditional",
+      "status_code": "P",
+      "claim": "Network policy: enabled, disabled or allowlist (1-100 hosts)",
+      "limitations": "No proxy, geo or IP selection documented",
+      "sources": [
+        "OA1",
+        "OA2"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_agents_cu:auth",
+      "product": "openai_agents_cu",
+      "category": "Identity",
+      "capability_id": "auth",
+      "capability": "Authenticated sessions",
+      "status": "Documented",
+      "status_code": "D",
+      "claim": "App brokers sign-in; session reused for follow-up tasks",
+      "limitations": "Main agent only; cookies can expire; environment recycle clears state",
+      "sources": [
+        "OA1"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_agents_cu:mfa",
+      "product": "openai_agents_cu",
+      "category": "Identity",
+      "capability_id": "mfa",
+      "capability": "MFA / password managers",
+      "status": "Conditional",
+      "status_code": "P",
+      "claim": "Email, password and verification codes via sign-in requests",
+      "limitations": "No passkeys or QR sign-in; requests expire after 5 min; no password manager",
+      "sources": [
+        "OA1"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_agents_cu:secrets",
+      "product": "openai_agents_cu",
+      "category": "Identity",
+      "capability_id": "secrets",
+      "capability": "Credential exposure boundary",
+      "status": "Documented",
+      "status_code": "D",
+      "claim": "Credentials excluded from model input and session history",
+      "limitations": "App must mask and not log values; vaults keep API secrets out of sandbox",
+      "sources": [
+        "OA1",
+        "OA8"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_agents_cu:pay",
+      "product": "openai_agents_cu",
+      "category": "Commerce",
+      "capability_id": "pay",
+      "capability": "Make purchases",
+      "status": "Not established",
+      "status_code": "U",
+      "claim": "No purchase/payment feature documented",
+      "limitations": "Docs: origin approval doesn't confirm individual actions like purchases",
+      "sources": [
+        "OA1"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_agents_cu:approval",
+      "product": "openai_agents_cu",
+      "category": "Commerce",
+      "capability_id": "approval",
+      "capability": "Purchase authorization",
+      "status": "Conditional",
+      "status_code": "P",
+      "claim": "App approves each website origin (BrowserOriginAccess)",
+      "limitations": "No per-action confirmation; restrict resources or use own runtime for guarantees",
+      "sources": [
+        "OA1"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_agents_cu:spend",
+      "product": "openai_agents_cu",
+      "category": "Commerce",
+      "capability_id": "spend",
+      "capability": "Transaction spend constraints",
+      "status": "Not established",
+      "status_code": "U",
+      "claim": "No merchant spend controls documented",
+      "limitations": "",
+      "sources": [],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_agents_cu:refund",
+      "product": "openai_agents_cu",
+      "category": "Commerce",
+      "capability_id": "refund",
+      "capability": "Refund / order reconciliation",
+      "status": "Not established",
+      "status_code": "U",
+      "claim": "No refund/order reconciliation documented",
+      "limitations": "",
+      "sources": [],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_agents_cu:background",
+      "product": "openai_agents_cu",
+      "category": "Autonomy",
+      "capability_id": "background",
+      "capability": "Work after user leaves",
+      "status": "Documented",
+      "status_code": "D",
+      "claim": "Async turns; closing the stream doesn't stop the task",
+      "limitations": "Sandbox can be deleted after 1h without activity or keep-alives",
+      "sources": [
+        "OA1",
+        "OA2",
+        "OA9"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_agents_cu:memory",
+      "product": "openai_agents_cu",
+      "category": "Autonomy",
+      "capability_id": "memory",
+      "capability": "Persistent state / memory",
+      "status": "Documented",
+      "status_code": "D",
+      "claim": "Durable sessions keep browser state and workspace files",
+      "limitations": "Login cookies can expire; recycling the environment clears browser state",
+      "sources": [
+        "OA1",
+        "OA2",
+        "OA3"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_agents_cu:comms",
+      "product": "openai_agents_cu",
+      "category": "Autonomy",
+      "capability_id": "comms",
+      "capability": "Email / calls / messaging",
+      "status": "Implementation-dependent inference",
+      "status_code": "I",
+      "claim": "Via MCP servers, function tools or web UIs you allow",
+      "limitations": "No built-in email, calling or messaging channel",
+      "sources": [
+        "OA3"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_agents_cu:files",
+      "product": "openai_agents_cu",
+      "category": "Execution",
+      "capability_id": "files",
+      "capability": "Files and artifacts",
+      "status": "Documented",
+      "status_code": "D",
+      "claim": "Session workspace; /workspace/outputs saved as artifacts",
+      "limitations": "Live files lost when sandbox expires; save outputs before deleting",
+      "sources": [
+        "OA2"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_agents_cu:api",
+      "product": "openai_agents_cu",
+      "category": "Developer",
+      "capability_id": "api",
+      "capability": "API / SDK / extensibility",
+      "status": "Documented",
+      "status_code": "D",
+      "claim": "REST + SDKs (beta.agents); OpenAI-Beta: agents=v1",
+      "limitations": "Public beta",
+      "sources": [
+        "OA7",
+        "OA3"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_agents_cu:oss",
+      "product": "openai_agents_cu",
+      "category": "Developer",
+      "capability_id": "oss",
+      "capability": "Self-host / open source",
+      "status": "Documented",
+      "status_code": "D",
+      "claim": "Computer use runs only in OpenAI-hosted environment",
+      "limitations": "Self-hosted sandboxes exist but don't host this browser tool",
+      "sources": [
+        "OA1",
+        "OA3"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_agents_cu:observe",
+      "product": "openai_agents_cu",
+      "category": "Operations",
+      "capability_id": "observe",
+      "capability": "Traces / live view / audit",
+      "status": "Documented",
+      "status_code": "D",
+      "claim": "computer_use_call items, optional screenshots, webhooks",
+      "limitations": "Screenshots off by default; origin approvals have no history items",
+      "sources": [
+        "OA1",
+        "OA9"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_agents_cu:limits",
+      "product": "openai_agents_cu",
+      "category": "Operations",
+      "capability_id": "limits",
+      "capability": "Scale / concurrency",
+      "status": "Conditional",
+      "status_code": "P",
+      "claim": "Sandbox 1-4 vCPU / 1-16 GB; up to 6 concurrent subagents default",
+      "limitations": "No browser concurrency or rate limits documented; subagents can't request sign-in",
+      "sources": [
+        "OA2",
+        "OA10",
+        "OA1"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_agents_cu:pricing",
+      "product": "openai_agents_cu",
+      "category": "Operations",
+      "capability_id": "pricing",
+      "capability": "Cost model",
+      "status": "Documented",
+      "status_code": "D",
+      "claim": "Model tokens + standard container rates",
+      "limitations": "No separate computer-use fee listed; container billed per minute, 5-min minimum",
+      "sources": [
+        "OA3",
+        "OA2",
+        "O8"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_agents_cu:privacy",
+      "product": "openai_agents_cu",
+      "category": "Governance",
+      "capability_id": "privacy",
+      "capability": "Isolation / data controls",
+      "status": "Documented",
+      "status_code": "D",
+      "claim": "/v1/agents: no training; 30-day abuse retention; state until deleted",
+      "limitations": "Not ZDR-eligible; US data residency only",
+      "sources": [
+        "OA6",
+        "OA3"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_agents_cu:available",
+      "product": "openai_agents_cu",
+      "category": "Access",
+      "capability_id": "available",
+      "capability": "Availability / gating",
+      "status": "Conditional",
+      "status_code": "P",
+      "claim": "Public beta for API keys with agents scopes",
+      "limitations": "Beta header required; no tier/region gating documented",
+      "sources": [
+        "OA7",
+        "O7"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_agents_cu:recent",
+      "product": "openai_agents_cu",
+      "category": "Evidence",
+      "capability_id": "recent",
+      "capability": "Most recent verified change",
+      "status": "Documented",
+      "status_code": "D",
+      "claim": "Computer use added to Agents API Sep 29, 2026",
+      "limitations": "Agents API itself public beta since Sep 10",
+      "sources": [
+        "O7"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_agents_cu:reliability",
+      "product": "openai_agents_cu",
+      "category": "Evidence",
+      "capability_id": "reliability",
+      "capability": "Comparable success evidence",
+      "status": "Not established",
+      "status_code": "U",
+      "claim": "No common end-to-end evaluation",
+      "limitations": "Docs: a completed turn doesn't guarantee every tool succeeded",
+      "sources": [
+        "OA2"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_agents_cu:schedule",
+      "product": "openai_agents_cu",
+      "category": "Autonomy",
+      "capability_id": "schedule",
+      "capability": "Schedules and event triggers",
+      "status": "Implementation-dependent inference",
+      "status_code": "I",
+      "claim": "No built-in scheduler; trigger sessions from your app",
+      "limitations": "Webhooks report session state changes only",
+      "sources": [
+        "OA9"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_agents_cu:code",
+      "product": "openai_agents_cu",
+      "category": "Execution",
+      "capability_id": "code",
+      "capability": "Execute code / build tools",
+      "status": "Documented",
+      "status_code": "D",
+      "claim": "Same hosted sandbox runs Python, Node.js and shell",
+      "limitations": "Network policy applies to browser and code alike",
+      "sources": [
+        "OA2",
+        "OA1"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_agents_cu:context",
+      "product": "openai_agents_cu",
+      "category": "Identity",
+      "capability_id": "context",
+      "capability": "Screen / audio / location context",
+      "status": "Conditional",
+      "status_code": "P",
+      "claim": "Screenshots of the hosted browser",
+      "limitations": "No user screen, audio or location access documented",
+      "sources": [
+        "OA1"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
+    },
+    {
+      "id": "openai_agents_cu:connectors",
+      "product": "openai_agents_cu",
+      "category": "Developer",
+      "capability_id": "connectors",
+      "capability": "Connectors beyond browser UI",
+      "status": "Documented",
+      "status_code": "D",
+      "claim": "MCP servers, function tools, plugins, vault-backed auth",
+      "limitations": "Subagents don't support function tools",
+      "sources": [
+        "OA3",
+        "OA8",
+        "OA10"
+      ],
+      "checked": "2026-10-05",
+      "testing": "Not hands-on tested"
     }
   ],
   "sources": [
@@ -5982,7 +7082,7 @@
       "title": "Kernel: pricing and limits",
       "url": "https://kernel.sh/docs/info/pricing.md",
       "published": "",
-      "accessed": "2026-09-10",
+      "accessed": "2026-10-05",
       "kind": "Primary documentation",
       "note": "Internal inconsistency: feature table says pools on every plan; FAQ says Start-Up/Enterprise. Confirm entitlement."
     },
@@ -6108,7 +7208,7 @@
       "title": "Browser Use: pricing",
       "url": "https://browser-use.com/pricing",
       "published": "",
-      "accessed": "2026-09-10",
+      "accessed": "2026-10-05",
       "kind": "Primary documentation",
       "note": "Current pay-as-you-go pricing. Agent token table includes 20% fee; browser and network charges are extra."
     },
@@ -6117,7 +7217,7 @@
       "title": "Browser Use: concurrency and request limits",
       "url": "https://docs.browser-use.com/cloud/guides/concurrency.md",
       "published": "2026-09-09",
-      "accessed": "2026-09-10",
+      "accessed": "2026-10-05",
       "kind": "Primary documentation",
       "note": "Date is the explicitly described edge-limit change, not a publication date for the whole page."
     },
@@ -6153,7 +7253,7 @@
       "title": "Browser Use: V4 models",
       "url": "https://docs.browser-use.com/cloud/agent/models.md",
       "published": "",
-      "accessed": "2026-09-10",
+      "accessed": "2026-10-05",
       "kind": "Primary documentation",
       "note": ""
     },
@@ -6180,7 +7280,7 @@
       "title": "OpenAI: API computer-use integration",
       "url": "https://developers.openai.com/api/docs/guides/tools-computer-use",
       "published": "",
-      "accessed": "2026-09-10",
+      "accessed": "2026-10-05",
       "kind": "Primary documentation",
       "note": "Current guide recommends code execution for GPT-6 Astra; structured computer tool remains supported."
     },
@@ -6189,7 +7289,7 @@
       "title": "OpenAI: ChatGPT and Codex changelog",
       "url": "https://learn.chatgpt.com/docs/changelog",
       "published": "2026-09-09",
-      "accessed": "2026-09-10",
+      "accessed": "2026-10-05",
       "kind": "Primary changelog",
       "note": "Newest visible dated entry: Codex CLI 0.154.0; not a new payment feature."
     },
@@ -6288,7 +7388,7 @@
       "title": "Meta: Muse launch",
       "url": "https://about.fb.com/news/2026/09/introducing-muse-personal-ai-agent/",
       "published": "2026-09-08",
-      "accessed": "2026-09-10",
+      "accessed": "2026-10-05",
       "kind": "Primary product claims",
       "note": ""
     },
@@ -6315,7 +7415,7 @@
       "title": "Browserbase: managed Agents",
       "url": "https://docs.browserbase.com/platform/agents/overview.md",
       "published": "",
-      "accessed": "2026-09-11",
+      "accessed": "2026-10-05",
       "kind": "Primary documentation",
       "note": "Checked for Browserbase addition only; no hands-on tests."
     },
@@ -6435,9 +7535,635 @@
       "accessed": "2026-09-11",
       "kind": "Primary announcement",
       "note": "Checked for Browserbase addition only; no hands-on tests."
+    },
+    {
+      "id": "K13",
+      "title": "Kernel: docs changelog",
+      "url": "https://github.com/kernel/docs/blob/main/changelog.mdx",
+      "published": "",
+      "accessed": "2026-10-05",
+      "kind": "Primary changelog",
+      "note": "Entries carry no year; year inferred from repository commits."
+    },
+    {
+      "id": "K14",
+      "title": "Kernel: AgentCard wallet",
+      "url": "https://kernel.sh/docs/integrations/wallets/agentcard.md",
+      "published": "",
+      "accessed": "2026-10-05",
+      "kind": "Primary documentation",
+      "note": ""
+    },
+    {
+      "id": "K15",
+      "title": "Kernel: 1Password Agentic Autofill",
+      "url": "https://kernel.sh/docs/vaults/1password.md",
+      "published": "",
+      "accessed": "2026-10-05",
+      "kind": "Primary documentation",
+      "note": "Preview."
+    },
+    {
+      "id": "K16",
+      "title": "Kernel: buy a browser with MPP",
+      "url": "https://kernel.sh/docs/info/mpp.md",
+      "published": "",
+      "accessed": "2026-10-05",
+      "kind": "Primary documentation",
+      "note": ""
+    },
+    {
+      "id": "K17",
+      "title": "Kernel: Web Bot Auth",
+      "url": "https://kernel.sh/docs/browsers/bot-detection/web-bot-auth.md",
+      "published": "",
+      "accessed": "2026-10-05",
+      "kind": "Primary documentation",
+      "note": ""
+    },
+    {
+      "id": "K18",
+      "title": "Kernel: Node SDK releases",
+      "url": "https://github.com/kernel/kernel-node-sdk/releases",
+      "published": "",
+      "accessed": "2026-10-05",
+      "kind": "Primary release",
+      "note": "Adyen checkout and VGS-backed wallets appear here without docs pages."
+    },
+    {
+      "id": "K19",
+      "title": "Kernel: Stagehand integration",
+      "url": "https://kernel.sh/docs/integrations/stagehand.md",
+      "published": "",
+      "accessed": "2026-10-05",
+      "kind": "Primary documentation",
+      "note": "Covers v4 (extension in the Kernel browser) and v3; v4 docs date from Aug 17."
+    },
+    {
+      "id": "K20",
+      "title": "Kernel: regional browsers",
+      "url": "https://kernel.sh/docs/browsers/regions.md",
+      "published": "",
+      "accessed": "2026-10-05",
+      "kind": "Primary documentation",
+      "note": ""
+    },
+    {
+      "id": "B16",
+      "title": "Browser Use: EU deployment",
+      "url": "https://docs.browser-use.com/cloud/eu-deployment.md",
+      "published": "",
+      "accessed": "2026-10-05",
+      "kind": "Primary documentation",
+      "note": ""
+    },
+    {
+      "id": "B17",
+      "title": "Browser Use: Chrome extensions",
+      "url": "https://docs.browser-use.com/cloud/browser/extensions.md",
+      "published": "",
+      "accessed": "2026-10-05",
+      "kind": "Primary documentation",
+      "note": ""
+    },
+    {
+      "id": "B18",
+      "title": "Browser Use SDK/docs PR #308 (V4 OpenAPI update)",
+      "url": "https://github.com/browser-use/sdk/pull/308",
+      "published": "2026-10-04",
+      "accessed": "2026-10-05",
+      "kind": "Primary repository",
+      "note": "Model enum, extensions, 1Password domains, removed share/feedback endpoints."
+    },
+    {
+      "id": "B19",
+      "title": "Browser Use SDK/docs PR #304 (checkout secrets, recording)",
+      "url": "https://github.com/browser-use/sdk/pull/304",
+      "published": "2026-10-03",
+      "accessed": "2026-10-05",
+      "kind": "Primary repository",
+      "note": ""
+    },
+    {
+      "id": "B20",
+      "title": "Browser Use OSS: Anthropic browser toolset driver",
+      "url": "https://docs.browser-use.com/open-source/customize/integrations/anthropic.md",
+      "published": "",
+      "accessed": "2026-10-05",
+      "kind": "Primary documentation",
+      "note": "Module on main only; not in a PyPI release as of Oct 5."
+    },
+    {
+      "id": "B21",
+      "title": "Browser Use: V4 network capture",
+      "url": "https://docs.browser-use.com/cloud/agent/network-capture.md",
+      "published": "",
+      "accessed": "2026-10-05",
+      "kind": "Primary documentation",
+      "note": ""
+    },
+    {
+      "id": "B22",
+      "title": "Browser Use SDK/docs PR #275 (tiers, V4 limits)",
+      "url": "https://github.com/browser-use/sdk/pull/275",
+      "published": "2026-09-12",
+      "accessed": "2026-10-05",
+      "kind": "Primary repository",
+      "note": ""
+    },
+    {
+      "id": "BB15",
+      "title": "Browserbase Agents: pausing runs",
+      "url": "https://docs.browserbase.com/platform/agents/pausing-runs.md",
+      "published": "",
+      "accessed": "2026-10-05",
+      "kind": "Primary documentation",
+      "note": ""
+    },
+    {
+      "id": "BB16",
+      "title": "Browserbase: Secrets",
+      "url": "https://docs.browserbase.com/platform/secrets/overview.md",
+      "published": "",
+      "accessed": "2026-10-05",
+      "kind": "Primary documentation",
+      "note": ""
+    },
+    {
+      "id": "BB17",
+      "title": "Browserbase: agent identity with Okta",
+      "url": "https://www.browserbase.com/blog/browser-agent-identity-okta",
+      "published": "2026-09-22",
+      "accessed": "2026-10-05",
+      "kind": "Primary announcement",
+      "note": "No docs page found."
+    },
+    {
+      "id": "BB18",
+      "title": "Browserbase: what is Jev",
+      "url": "https://www.browserbase.com/blog/what-is-jev",
+      "published": "2026-09-21",
+      "accessed": "2026-10-05",
+      "kind": "Primary product claims",
+      "note": "Related Stagehand PRs still open and experimental on Oct 5."
+    },
+    {
+      "id": "BB19",
+      "title": "Stagehand v4: models",
+      "url": "https://docs.stagehand.dev/v4/configuration/models.md",
+      "published": "",
+      "accessed": "2026-10-05",
+      "kind": "Primary documentation",
+      "note": ""
+    },
+    {
+      "id": "BB20",
+      "title": "Stagehand v4: Stripe WebMCP guide",
+      "url": "https://docs.stagehand.dev/v4/integrations/applications/stripe.md",
+      "published": "",
+      "accessed": "2026-10-05",
+      "kind": "Primary documentation",
+      "note": "Sample is a proposal; requires Chrome 153+ with WebMCP."
+    },
+    {
+      "id": "BB21",
+      "title": "Stagehand on npm",
+      "url": "https://www.npmjs.com/package/@browserbasehq/stagehand",
+      "published": "",
+      "accessed": "2026-10-05",
+      "kind": "Primary release",
+      "note": "Oct 5: latest 4.1.0, v3-latest 3.7.3, alpha 4.2.0."
+    },
+    {
+      "id": "O7",
+      "title": "OpenAI API changelog",
+      "url": "https://developers.openai.com/api/docs/changelog",
+      "published": "",
+      "accessed": "2026-10-05",
+      "kind": "Primary changelog",
+      "note": ""
+    },
+    {
+      "id": "O8",
+      "title": "OpenAI API pricing",
+      "url": "https://developers.openai.com/api/docs/pricing",
+      "published": "",
+      "accessed": "2026-10-05",
+      "kind": "Primary documentation",
+      "note": ""
+    },
+    {
+      "id": "M4",
+      "title": "SiliconANGLE: Amazon blocks Muse",
+      "url": "https://siliconangle.com/2026/09/21/amazon-blocks-metas-muse-agent-from-shopping-on-users-behalf/",
+      "published": "2026-09-21",
+      "accessed": "2026-10-05",
+      "kind": "Secondary reporting",
+      "note": ""
+    },
+    {
+      "id": "P3",
+      "title": "Stripe: helping personal agents shop with Link",
+      "url": "https://stripe.com/blog/helping-personal-agents-shop-more-intelligently-and-reliably-with-link",
+      "published": "2026-09-29",
+      "accessed": "2026-10-05",
+      "kind": "Primary partner announcement",
+      "note": ""
+    },
+    {
+      "id": "I7",
+      "title": "PYMNTS: Instinct targets $10B valuation",
+      "url": "https://www.pymnts.com/startups/2026/instinct-ai-assistant-targets-10-billion-dollar-valuation/",
+      "published": "2026-09-15",
+      "accessed": "2026-10-05",
+      "kind": "Secondary reporting",
+      "note": "Relays The Information."
+    },
+    {
+      "id": "A1",
+      "title": "Claude Platform release notes",
+      "url": "https://platform.claude.com/docs/en/release-notes/overview",
+      "published": "",
+      "accessed": "2026-10-05",
+      "kind": "Primary changelog",
+      "note": "Adjacent context; Anthropic is not a column."
+    },
+    {
+      "id": "OD1",
+      "title": "OpenAI: Meet dots",
+      "url": "https://learn.chatgpt.com/docs/dots",
+      "published": "",
+      "accessed": "2026-10-05",
+      "kind": "Primary documentation",
+      "note": "Access section: gradual rollout; Pro 100/200/500 (18+, not EEA/UK/CH), Business Premium, Enterprise (admin-enabled)."
+    },
+    {
+      "id": "OD2",
+      "title": "OpenAI: connect computers and apps to your dot",
+      "url": "https://learn.chatgpt.com/docs/dots/computers-and-apps",
+      "published": "",
+      "accessed": "2026-10-05",
+      "kind": "Primary documentation",
+      "note": ""
+    },
+    {
+      "id": "OD3",
+      "title": "OpenAI: control your dot",
+      "url": "https://learn.chatgpt.com/docs/dots/controls",
+      "published": "",
+      "accessed": "2026-10-05",
+      "kind": "Primary documentation",
+      "note": "Action auto-review, custom rules, data settings, stop/delete."
+    },
+    {
+      "id": "OD4",
+      "title": "OpenAI: dots tasks and memory",
+      "url": "https://learn.chatgpt.com/docs/dots/tasks-and-memory",
+      "published": "",
+      "accessed": "2026-10-05",
+      "kind": "Primary documentation",
+      "note": ""
+    },
+    {
+      "id": "OD5",
+      "title": "OpenAI: message your dot",
+      "url": "https://learn.chatgpt.com/docs/dots/channels",
+      "published": "",
+      "accessed": "2026-10-05",
+      "kind": "Primary documentation",
+      "note": "Texting 'coming soon'; dot-initiated calls planned after launch."
+    },
+    {
+      "id": "OD6",
+      "title": "OpenAI: dots admin guide",
+      "url": "https://learn.chatgpt.com/docs/enterprise/dots-admin-guide",
+      "published": "",
+      "accessed": "2026-10-05",
+      "kind": "Primary documentation",
+      "note": "FAQ says Microsoft Teams access is an invite-only alpha."
+    },
+    {
+      "id": "OD7",
+      "title": "OpenAI: ChatGPT Work cloud security",
+      "url": "https://learn.chatgpt.com/docs/enterprise/chatgpt-work-cloud-security",
+      "published": "",
+      "accessed": "2026-10-05",
+      "kind": "Primary documentation",
+      "note": "Cloud browser/network capabilities shared by Work Cloud and dots; retention by data category."
+    },
+    {
+      "id": "OD9",
+      "title": "SiliconANGLE: OpenAI launches dots",
+      "url": "https://siliconangle.com/2026/09/29/openai-launches-dots-always-on-ai-agents-in-chatgpt-with-their-own-cloud-computers/",
+      "published": "2026-09-29",
+      "accessed": "2026-10-05",
+      "kind": "Secondary reporting",
+      "note": "Launch date source; not fetched in full. Press also cites Edu/Healthcare workspaces, which dots docs omit."
+    },
+    {
+      "id": "OA1",
+      "title": "OpenAI: Agents API computer use",
+      "url": "https://developers.openai.com/api/docs/guides/agents-api/tools/computer-use",
+      "published": "",
+      "accessed": "2026-10-05",
+      "kind": "Primary documentation",
+      "note": ""
+    },
+    {
+      "id": "OA2",
+      "title": "OpenAI: Agents API OpenAI-hosted sandboxes",
+      "url": "https://developers.openai.com/api/docs/guides/agents-api/environments/openai-hosted",
+      "published": "",
+      "accessed": "2026-10-05",
+      "kind": "Primary documentation",
+      "note": ""
+    },
+    {
+      "id": "OA3",
+      "title": "OpenAI: Agents API overview",
+      "url": "https://developers.openai.com/api/docs/guides/agents-api/overview",
+      "published": "",
+      "accessed": "2026-10-05",
+      "kind": "Primary documentation",
+      "note": "Not ZDR-eligible; US data residency only."
+    },
+    {
+      "id": "OA6",
+      "title": "OpenAI: data controls in the OpenAI platform",
+      "url": "https://developers.openai.com/api/docs/guides/your-data",
+      "published": "",
+      "accessed": "2026-10-05",
+      "kind": "Primary documentation",
+      "note": "/v1/agents: no training, 30-day abuse retention, state until deleted, not ZDR-eligible."
+    },
+    {
+      "id": "OA7",
+      "title": "OpenAI: Agents API quickstart",
+      "url": "https://developers.openai.com/api/docs/guides/agents-api/quickstart",
+      "published": "",
+      "accessed": "2026-10-05",
+      "kind": "Primary documentation",
+      "note": ""
+    },
+    {
+      "id": "OA8",
+      "title": "OpenAI: Agents API vaults",
+      "url": "https://developers.openai.com/api/docs/guides/agents-api/tools/vaults",
+      "published": "",
+      "accessed": "2026-10-05",
+      "kind": "Primary documentation",
+      "note": ""
+    },
+    {
+      "id": "OA9",
+      "title": "OpenAI: Agents API session webhooks",
+      "url": "https://developers.openai.com/api/docs/guides/agents-api/sessions/webhooks",
+      "published": "",
+      "accessed": "2026-10-05",
+      "kind": "Primary documentation",
+      "note": ""
+    },
+    {
+      "id": "OA10",
+      "title": "OpenAI: Agents API multi-agent",
+      "url": "https://developers.openai.com/api/docs/guides/agents-api/multi-agent",
+      "published": "",
+      "accessed": "2026-10-05",
+      "kind": "Primary documentation",
+      "note": ""
     }
   ],
   "changes": [
+    [
+      "2026-10-05",
+      "",
+      "All",
+      "Refresh sweep",
+      "Changelogs, releases and docs dated Sep 10\u2013Oct 5",
+      "U",
+      "",
+      "Browser Use OSS and Stagehand had no stable releases. Absence is not proof of no changes."
+    ],
+    [
+      "2026-10-04",
+      "",
+      "Browser Use Cloud",
+      "Chrome extensions",
+      "Upload extensions; attach to browsers (max 3) and V4 runs",
+      "D",
+      "B17 B18",
+      "Not on ZDR projects; SDK types lag."
+    ],
+    [
+      "2026-10-03",
+      "",
+      "Browser Use Cloud",
+      "Default model change",
+      "V4 default is GPT-6 Luna with High reasoning",
+      "D",
+      "B15",
+      "Pin model and modelParams for stable cost."
+    ],
+    [
+      "2026-10-02",
+      "",
+      "Kernel",
+      "1Password Agentic Autofill",
+      "Preview; user approves each login in 1Password",
+      "D",
+      "K15",
+      "Private vaults only; no passkeys."
+    ],
+    [
+      "2026-10-02",
+      "",
+      "Kernel",
+      "Accountless browser purchase (MPP)",
+      "$0.50 for a 30-minute stealth headful session",
+      "D",
+      "K16",
+      "Paid only through Stripe Link CLI."
+    ],
+    [
+      "2026-10-02",
+      "",
+      "Browser Use Cloud",
+      "Signup credit cut",
+      "$15 to $1 for eligible signups",
+      "D",
+      "B10",
+      ""
+    ],
+    [
+      "2026-09-30",
+      "",
+      "Browserbase Functions",
+      "Secrets GA",
+      "Per-project encrypted secrets via context.secrets",
+      "D",
+      "BB16",
+      "Functions only; not documented for Agents."
+    ],
+    [
+      "2026-09-30",
+      "",
+      "Meta Muse",
+      "Launch post updated",
+      "Shop Pay and 1Password still coming soon; Confidential VM later this year",
+      "D",
+      "M1",
+      "Shopify (Sep 21) and PayPal (Sep 22) posts are not Meta confirmations."
+    ],
+    [
+      "2026-09-29",
+      "",
+      "OpenAI dots",
+      "Launch",
+      "Always-on agent with its own cloud computer and browser",
+      "R",
+      "OD9 OD1",
+      "Gradual rollout; Pro not offered in EEA/UK/Switzerland. Date from press."
+    ],
+    [
+      "2026-09-29",
+      "",
+      "OpenAI API",
+      "Computer use in Agents API (beta)",
+      "OpenAI-hosted browser; app approves origins and brokers sign-in",
+      "D",
+      "O7 OA1",
+      "Agents API beta since Sep 10; not ZDR-eligible."
+    ],
+    [
+      "2026-09-29",
+      "",
+      "OpenAI",
+      "GPT-6.1 Sol",
+      "Computer-use capable; about 1/5 of Astra API price",
+      "D",
+      "O7 O8",
+      "Benchmark gains are vendor claims."
+    ],
+    [
+      "2026-09-29",
+      "",
+      "Stripe Link",
+      "Agent purchase updates",
+      "Incremental authorization; purchase protections live via Muse first",
+      "V",
+      "P3",
+      "Granular agent controls coming soon."
+    ],
+    [
+      "2026-09-25",
+      "",
+      "Kernel",
+      "Custom WebMCP tools; limits API",
+      "Custom tools via API/REPL; concurrency usage reported",
+      "D",
+      "K13",
+      "No limit changes."
+    ],
+    [
+      "2026-09-24",
+      "",
+      "Browserbase Agents",
+      "Pause and resume runs",
+      "pauseWhen plus Resume API for 2FA and approvals",
+      "D",
+      "BB15",
+      "Session timeout keeps running while paused."
+    ],
+    [
+      "2026-09-22",
+      "2026-09-28",
+      "Anthropic API (adjacent)",
+      "Computer-use toolset migration",
+      "Opus 5.5 / Sonnet 5.5 require computer_toolset_20260801 on the Claude API",
+      "D",
+      "A1",
+      "Model releases Sep 22 and Sep 28; Bedrock differs."
+    ],
+    [
+      "2026-09-22",
+      "",
+      "Browserbase Agents",
+      "Okta Cross App Access",
+      "Scoped, revocable agent tokens through Okta",
+      "V",
+      "BB17",
+      "Blog only; no docs page."
+    ],
+    [
+      "2026-09-21",
+      "",
+      "Meta Muse",
+      "Amazon blocks Muse",
+      "Amazon cites its Conditions of Use",
+      "R",
+      "M4",
+      "Third-party reporting."
+    ],
+    [
+      "2026-09-21",
+      "",
+      "Stagehand",
+      "Jev decision model blog",
+      "Claims 77% lower act latency",
+      "V",
+      "BB18",
+      "PRs still open and experimental; not in 4.1.0."
+    ],
+    [
+      "2026-09-18",
+      "",
+      "Kernel",
+      "Credential vaults",
+      "Vaults store logins; Kernel-hosted entry and fill",
+      "D",
+      "K13",
+      "Also a persistent in-VM browser REPL."
+    ],
+    [
+      "2026-09-17",
+      "",
+      "Kernel",
+      "AgentCard processors",
+      "Braintree, Worldpay, Bambora and Mercado Pago listed",
+      "D",
+      "K14",
+      "Prepared single-use checkout only for some."
+    ],
+    [
+      "2026-09-16",
+      "",
+      "Browser Use Cloud",
+      "EU deployment (Frankfurt)",
+      "Regional API and dashboard; shared billing",
+      "D",
+      "B16",
+      "Fewer features; residency exceptions documented."
+    ],
+    [
+      "2026-09-15",
+      "",
+      "Instinct",
+      "Funding report",
+      "About $10B valuation talks; 100K+ users",
+      "R",
+      "I7",
+      "No product change verified."
+    ],
+    [
+      "2026-09-13",
+      "2026-09-12",
+      "Browser Use Cloud",
+      "Tiers and request budget",
+      "Tier 1 from $100; RPS max(25, 2 \u00d7 concurrency) up to 100",
+      "D",
+      "B11 B22",
+      "Pricing page still says $200."
+    ],
     [
       "2026-09-10",
       "2026-09-09",
@@ -6447,6 +8173,16 @@
       "D",
       "K10",
       "02:42 UTC is previous evening PDT."
+    ],
+    [
+      "2026-09-10",
+      "",
+      "All",
+      "Same-day search and docs check",
+      "No additional dated release verified for Instinct/Muse/ChatGPT CUA",
+      "U",
+      "",
+      "Search coverage is bounded; absence is not proof of no changes."
     ],
     [
       "2026-09-09",
@@ -6477,6 +8213,26 @@
       "D",
       "O4",
       "Adjacent to computer-use ecosystem, not a new checkout/payment feature."
+    ],
+    [
+      "2026-09-09",
+      "",
+      "Browserbase Functions",
+      "Lifecycle webhooks",
+      "Receive build / invocation completion notifications",
+      "D",
+      "BB14 BB8",
+      "Notification delivery; external scheduling still separate."
+    ],
+    [
+      "2026-09-09",
+      "",
+      "Stagehand v4",
+      "Code-driven browser tools",
+      "MCP run/snapshot/screenshot; external harness",
+      "D",
+      "BB13 BB11",
+      "Article date; v4 migration removes agent(). Performance figures are vendor benchmarks."
     ],
     [
       "2026-09-08",
@@ -6527,36 +8283,6 @@
       "D",
       "B13",
       "Do not treat repository commits as released package features."
-    ],
-    [
-      "2026-09-10",
-      "",
-      "All",
-      "Same-day search and docs check",
-      "No additional dated release verified for Instinct/Muse/ChatGPT CUA",
-      "U",
-      "",
-      "Search coverage is bounded; absence is not proof of no changes."
-    ],
-    [
-      "2026-09-09",
-      "",
-      "Browserbase Functions",
-      "Lifecycle webhooks",
-      "Receive build / invocation completion notifications",
-      "D",
-      "BB14 BB8",
-      "Notification delivery; external scheduling still separate."
-    ],
-    [
-      "2026-09-09",
-      "",
-      "Stagehand v4",
-      "Code-driven browser tools",
-      "MCP run/snapshot/screenshot; external harness",
-      "D",
-      "BB13 BB11",
-      "Article date; v4 migration removes agent(). Performance figures are vendor benchmarks."
     ]
   ],
   "prices": [
@@ -6621,6 +8347,16 @@
       "About $2.88/hour; Start-Up or Enterprise."
     ],
     [
+      "Kernel",
+      "MPP browser session",
+      0.5,
+      "USD / 30-minute session",
+      null,
+      "",
+      "K16",
+      "No Kernel account; paid through Stripe Link CLI only."
+    ],
+    [
       "Browser Use Cloud",
       "Browser runtime",
       0.02,
@@ -6665,10 +8401,10 @@
       "Minimum top-up",
       5,
       "USD",
-      15,
+      1,
       "Eligible one-time signup credit",
       "B10",
-      "Top-up credits do not expire; eligibility applies."
+      "Signup credit cut from $15 to $1 on Oct 2; top-up credits do not expire."
     ],
     [
       "Browser Use Cloud",
@@ -6708,7 +8444,7 @@
       null,
       "",
       "O5",
-      "Higher-usage $200 tier also documented. No universal cost per task."
+      "Pro tiers $100 / $200 / $500 documented. No universal cost per task."
     ],
     [
       "OpenAI API",
@@ -6719,6 +8455,16 @@
       "",
       "O3",
       "Model tokens, external runtime and tools billed separately."
+    ],
+    [
+      "OpenAI API",
+      "GPT-6.1 Sol input/output",
+      2,
+      "USD / million input tokens",
+      10,
+      "USD / million output tokens",
+      "O8",
+      "Cached input $0.10/million; about 1/5 of GPT-6 Astra."
     ],
     [
       "Instinct",
@@ -6809,13 +8555,43 @@
       "",
       "BB12",
       "Hosted Browserbase services have separate pricing."
+    ],
+    [
+      "OpenAI dots",
+      "Plan access",
+      null,
+      "Included in Pro / Business Premium / Enterprise",
+      null,
+      "",
+      "O5",
+      "Dot chats do not count toward ChatGPT limits; Work/Codex tasks it starts do. Business Premium price not listed."
+    ],
+    [
+      "OpenAI Agents API computer use",
+      "GPT-6 Astra tokens",
+      10,
+      "USD / million input tokens",
+      50,
+      "USD / million output tokens",
+      "O8",
+      "Standard short-context rate; no separate computer-use fee listed."
+    ],
+    [
+      "OpenAI Agents API computer use",
+      "Hosted sandbox (default size)",
+      0.12,
+      "USD / 20-minute session",
+      null,
+      "",
+      "O8",
+      "Container rate by memory; size mapping inferred. Billed per minute, 5-minute minimum."
     ]
   ],
   "details": [
     [
       "Kernel processor coverage",
-      "Native request adapters cover Stripe, Shopify, Square, Recurly and Razorpay. Matching endpoint, method, payload and complete aliases are required. Non-Stripe adapters need broader validation; encrypted/unrecognized formats may not hand off.",
-      "K5"
+      "AgentCard lists Stripe, Shopify, Square, Recurly, Razorpay, Braintree, Worldpay, Bambora and Mercado Pago; Square and the last four use prepared single-use checkout only. Adyen and VGS-backed wallets appear only in SDK notes. Matching endpoint, method, payload and complete aliases are still required.",
+      "K5 K14 K18"
     ],
     [
       "Kernel transaction state",
@@ -6844,8 +8620,8 @@
     ],
     [
       "Browser Use scaling",
-      "Base project application budget is 25 RPS; selected status reads default to max(25, 2 \u00d7 stored concurrency). Edge WAF ceilings of 1,000/2,500 RPS per IP are a separate layer.",
-      "B11"
+      "Project request budget is max(25, 2 \u00d7 concurrency) capped at 100 RPS (Free stays 25); status reads are uncapped max(25, 2 \u00d7 concurrency). Edge WAF ceilings of 1,000/2,500 RPS per IP are separate. Docs put Tier 1 (50 sessions) at $100 while the pricing page says $200; trust the account limit.",
+      "B11 B10 B22"
     ],
     [
       "ChatGPT scope",
@@ -6864,8 +8640,8 @@
     ],
     [
       "Muse launch vs roadmap",
-      "Muse Secure VM is current. Confidential VM, Shop Pay and 1Password are announced future capabilities at launch; do not count them as generally available.",
-      "M1 M2"
+      "Muse Secure VM is current. Meta's Sep 30 update still lists Shop Pay and 1Password as coming soon and Confidential VM as later this year. Shopify and PayPal posts are partner announcements, and Amazon blocks Muse (reported).",
+      "M1 M2 M4"
     ],
     [
       "Muse privacy",
@@ -6904,13 +8680,48 @@
     ],
     [
       "Browserbase Functions limits",
-      "Functions are TypeScript-only, us-west-2-only, limited to 15 minutes, and have no persistent storage between invocations. Functions secrets are described as coming soon. These limits are not assumed to be managed-Agent limits.",
-      "BB8"
+      "Functions are TypeScript-only, us-west-2-only, limited to 15 minutes, and have no persistent storage between invocations. Secrets are GA for Functions (Sep 30) but not documented for managed Agents. These limits are not assumed to be managed-Agent limits.",
+      "BB8 BB16"
     ],
     [
       "Snapshot update scope",
-      "Browserbase / Stagehand added and checked September 11, 2026. Original eight surfaces and their evidence retain September 10 check dates. No hands-on tests or provider-wide refresh was performed.",
+      "Browserbase / Stagehand added September 11, 2026. Refreshed October 5, 2026 from changelogs, releases and docs dated Sep 10\u2013Oct 5; untouched entries keep earlier check dates. No hands-on tests were performed.",
       ""
+    ],
+    [
+      "Kernel Stagehand guide",
+      "Kernel's Stagehand guide covers v4, running as an extension inside the Kernel browser, and v3. The September snapshot's v3-only statement was wrong.",
+      "K19"
+    ],
+    [
+      "Kernel regions",
+      "us-east, eu-west and ap-southeast are on Start-Up and Enterprise. Regions reduce latency; profiles, replays and session metadata may be stored or processed in the US.",
+      "K20"
+    ],
+    [
+      "Browser Use unreleased work",
+      "The Anthropic browser-toolset driver and V4 structured output are merged but in no released package (browser-use 0.13.10, SDK 3.11.3). Do not route on them until a release contains them.",
+      "B20 B13"
+    ],
+    [
+      "Watched, not added",
+      "Microsoft Copilot Autopilot is in private preview (reported Sep 25). On the Claude API, Opus 5.5 and Sonnet 5.5 require computer_toolset_20260801; computer_20251124 returns 400 there. Neither is a column.",
+      "A1"
+    ],
+    [
+      "OpenAI surfaces after DevDay",
+      "Desktop computer use, Work cloud browser, dots and Agents API computer use are separate products. Agents API computer use is a developer-run hosted browser billed by tokens and containers; it does not use ChatGPT sessions, saved logins or plan allowances.",
+      "O1 O2 OD1 OA1"
+    ],
+    [
+      "OpenAI Agents API data controls",
+      "/v1/agents is not ZDR-eligible: 30-day abuse-monitoring retention, application state kept until deleted, US data residency only. Not used for training.",
+      "OA6 OA3"
+    ],
+    [
+      "dots evidence gaps",
+      "dots docs do not mention purchases, spend limits or CAPTCHA solving; it shares Work's sign-in flow, but Work's payment behaviour is not assumed. Teams access is an invite-only alpha per the admin FAQ. Launch date is from press; the ChatGPT changelog has no dots entry.",
+      "OD1 OD6 OD9"
     ]
   ],
   "status_names": {
@@ -6921,5 +8732,6 @@
     "U": "Not established",
     "A": "Announced future",
     "I": "Implementation-dependent inference"
-  }
+  },
+  "refreshed": "2026-10-05"
 }
